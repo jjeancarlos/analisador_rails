@@ -1,0 +1,40 @@
+<h1>Histórico de Análises</h1>
+<nav>
+  <%= link_to "Analisar Novo Arquivo", root_path %> |
+  <%= link_to "Histórico de Análises", analyses_path %>
+</nav>
+
+<hr>
+
+<% if flash[:notice] %>
+  <p style="color: green;"><%= flash[:notice] %></p>
+<% end %>
+
+<table border="1" style="width:100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th>Arquivo</th>
+      <th>Tamanho</th>
+      <th>Status</th>
+      <th>Relatório VirusTotal</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @analyses.each do |analysis| %>
+      <tr>
+        <td><%= analysis.filename %></td>
+        <td><%= analysis.filesize_bytes %> bytes</td>
+        <td>
+          <% if analysis.is_malicious? %>
+            <strong style="color: red;">MALICIOSO</strong>
+          <% else %>
+            <span style="color: green;">SEGURO</span>
+          <% end %>
+        </td>
+        <td><%= analysis.analysis_report %></td>
+        <td><%= analysis.created_at.strftime('%d/%m/%Y %H:%M') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

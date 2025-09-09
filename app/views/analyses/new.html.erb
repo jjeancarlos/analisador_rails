@@ -1,0 +1,26 @@
+<h1>Analisador de Arquivos com VirusTotal</h1>
+<nav>
+  <%= link_to "Analisar Novo Arquivo", root_path %> |
+  <%= link_to "Histórico de Análises", analyses_path %>
+</nav>
+
+<hr>
+
+<%# Exibe mensagens de alerta/notificação %>
+<% if flash[:alert] %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% end %>
+<% if flash[:notice] %>
+  <p style="color: green;"><%= flash[:notice] %></p>
+<% end %>
+
+<%= form_with(model: @analysis, url: analyses_path, method: :post) do |form| %>
+  <div>
+    <%= form.label :file, "Selecione o arquivo para análise:" %>
+    <%= form.file_field :file, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Analisar Arquivo" %>
+  </div>
+<% end %>

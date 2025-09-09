@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  filename: MyString
+  filesize_bytes: 1
+  sha256_hash: MyString
+  is_malicious: false
+  analysis_report: MyText
+
+two:
+  filename: MyString
+  filesize_bytes: 1
+  sha256_hash: MyString
+  is_malicious: false
+  analysis_report: MyText
