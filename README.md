@@ -1,9 +1,3 @@
-Excelente ideia\! Um arquivo README.md é essencial para qualquer projeto, pois ele serve como um guia rápido para outros desenvolvedores (e para você mesmo, no futuro). Ele descreve o que o projeto faz, como instalá-lo e como usá-lo.
-
-Aqui está um modelo de README.md que você pode usar para o seu "Analisador de Arquivos com Ruby on Rails", já formatado em Markdown. Basta copiar e colar em um novo arquivo chamado `README.md` na raiz do seu projeto.
-
------
-
 # 🔎 Analisador de Arquivos com Ruby on Rails
 
 Este é um projeto simples, porém funcional, construído com Ruby on Rails para demonstrar o processamento de arquivos, a integração com uma API externa (VirusTotal) e o armazenamento de dados em um banco de dados PostgreSQL.
