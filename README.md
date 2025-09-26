@@ -98,7 +98,7 @@ Siga os passos abaixo para configurar e rodar a aplicação:
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [`LICENSE`](LICENSE) para mais detalhes.
 
 ### Créditos
 
