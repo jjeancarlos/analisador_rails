@@ -100,11 +100,6 @@ Siga os passos abaixo para configurar e rodar a aplicação:
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-Ótima ideia! Adicionar seu nome aos créditos é uma forma simples e importante de se creditar pelo trabalho. Isso personaliza o projeto e dá a ele uma identidade.
-
-Aqui está a versão aprimorada da seção de créditos para o seu `README.md`, já com o seu nome inserido:
-
----
 ### Créditos
 
 Este projeto foi desenvolvido como um tutorial prático para aprendizado e implementado por **Jean Carlos**.
