@@ -84,21 +84,11 @@ Siga os passos abaixo para configurar e rodar a aplicação:
 
   Claro! Aqui está a tradução para o português:
 
----
-
-## Apoie o Projeto
-
-**Carteira BTC:** `bc1qmt739lup9x4uxlxsl7mh0rwfmedsd92m3rmu2r`
-
-<div align = "left">
-  <img src="https://github.com/user-attachments/assets/a04d54ee-aced-44df-8ba9-b8425fce95c7" width="300" alt="Carteira BTC para Doação">
-</div>
-
----
 
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [`LICENSE`](LICENSE) para mais detalhes.
+---
 
 ### Créditos
 
