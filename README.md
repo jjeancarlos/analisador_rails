@@ -82,16 +82,6 @@ Siga os passos abaixo para configurar e rodar a aplicação:
   - **`config/routes.rb`**: Define as rotas para a aplicação.
   - **`db/migrate/*`**: Contém a migration para criar a tabela `analyses` no banco de dados.
 
-  Claro! Aqui está a tradução para o português:
-
-
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [`LICENSE`](LICENSE) para mais detalhes.
----
-
-### Créditos
-
-Este projeto foi desenvolvido como um tutorial prático para aprendizado e implementado por **Jean Carlos**.
-
----
