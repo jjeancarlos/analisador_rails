@@ -1,64 +1,68 @@
 source "https://rubygems.org"
-# Para requisitar APIs REST
-gem "httparty"
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+
+# Gem principal do Rails
 gem "rails", "~> 8.0.3"
-# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+
+# Para requisitar APIs REST (VirusTotal)
+gem "httparty"
+
+# Propshaft: Asset pipeline moderno
 gem "propshaft"
-# Use postgresql as the database for Active Record
+
+# Banco de dados PostgreSQL
 gem "pg", "~> 1.1"
-# Use the Puma web server [https://github.com/puma/puma]
+
+# Servidor Web
 gem "puma", ">= 5.0"
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+
+# JavaScript e Frontend
 gem "importmap-rails"
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Utilitários de fuso horário (necessário para Windows)
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
-# Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
+# Backends de banco de dados para Cache, Jobs e Cable (Padrão Rails 8)
 gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
-# Reduces boot times through caching; required in config/boot.rb
+# Otimização de boot
 gem "bootsnap", require: false
 
-# Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
+# Deploy com Docker
 gem "kamal", require: false
 
-# Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
+# Aceleração de assets para o Puma
 gem "thruster", require: false
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
-
+# --- GRUPO DE DESENVOLVIMENTO E TESTE ---
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  # Debugger
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-
-  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
+  
+  # Análise de segurança
   gem "brakeman", require: false
-
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
+  
+  # Linter de estilo (Rubocop)
   gem "rubocop-rails-omakase", require: false
+
+  # IMPORTANTE: Carrega as variáveis do arquivo .env
+  gem "dotenv-rails", "~> 3.2"
+  
+  # IMPORTANTE: Corrige o erro do VS Code e melhora a inteligência do editor
+  gem "ruby-lsp", require: false
 end
 
+# --- APENAS DESENVOLVIMENTO ---
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
 
+# --- APENAS TESTES ---
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
 end
