@@ -6,7 +6,7 @@ class VirusTotalClient
   base_uri 'https://www.virustotal.com/api/v3'
 
   def initialize
-    @api_key = Rails.application.credentials.virus_total_api_key
+    @api_key = ENV["VIRUS_TOTAL_API_KEY"]
     raise "API Key do VirusTotal não configurada nas credentials!" if @api_key.nil?
     @headers = { "x-apikey" => @api_key }
   end
