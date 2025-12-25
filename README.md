@@ -1,86 +1,105 @@
-# 🔎 Analisador de Arquivos com Ruby on Rails
+# 🔎 Analisador de Arquivos com Ruby on Rails 8
 
-Este é um projeto simples, porém funcional, construído com Ruby on Rails para demonstrar o processamento de arquivos, a integração com uma API externa (VirusTotal) e o armazenamento de dados em um banco de dados PostgreSQL.
+Este é um projeto desenvolvido com **Ruby on Rails 8** para demonstrar o processamento de arquivos, a integração com API externa (VirusTotal) e o armazenamento de dados em PostgreSQL.
+
+O sistema calcula o hash de um arquivo enviado, verifica se ele é malicioso consultando a API do VirusTotal e armazena o resultado para evitar consultas repetidas (cache).
 
 ## Funcionalidades
 
-  - **Upload de Arquivos:** Interface HTML simples para selecionar e enviar arquivos.
-  - **Cálculo de Hash:** Computa o hash SHA-256 do arquivo enviado para identificação única.
-  - **Análise com VirusTotal:** Utiliza a API do VirusTotal para verificar se o hash do arquivo está associado a ameaças de segurança.
-  - **Cache de Análise:** Evita consultas duplicadas à API, armazenando os resultados de análise em um banco de dados.
-  - **Histórico:** Exibe todas as análises de arquivos salvas em uma tabela.
-  - **Segurança da Chave:** Armazena a chave de API de forma segura usando o sistema de *credentials* do Rails.
+- **Upload de Arquivos:** Interface simples para envio de arquivos.
+- **Cálculo de Hash:** Computa o SHA-256 do arquivo para identificação única.
+- **Integração com VirusTotal:** Verifica a segurança do arquivo via API.
+- **Cache de Análise:** Salva os resultados no banco de dados para economizar requisições à API.
+- **Histórico:** Exibe a lista de arquivos já analisados.
+- **Configuração via .env:** Gerenciamento seguro de credenciais e variáveis de ambiente.
 
 ## Pré-requisitos
 
-Para rodar este projeto localmente, certifique-se de ter instalado:
+Certifique-se de ter instalado em sua máquina:
 
-  - **Ruby** (versão 3.1.2 ou superior)
-  - **Bundler**
-  - **Rails** (versão 7.1.2 ou superior)
-  - **PostgreSQL**
-  - Uma conta no **VirusTotal** para obter sua chave de API.
+- **Ruby** (Versão 3.2 ou superior)
+- **Rails** (Versão 8.0.3)
+- **PostgreSQL** (Banco de dados)
+- **Bundler**
+- Uma chave de API do **VirusTotal** (Grátis).
 
-## Instalação e Execução
+## 🚀 Instalação e Configuração
 
-Siga os passos abaixo para configurar e rodar a aplicação:
+### 1. Clone o repositório
 
-1.  **Clone o repositório ou crie o projeto do zero:**
+```bash
+git clone [URL_DO_SEU_REPOSITORIO]
+cd analisador_rails
 
-    ```bash
-    git clone [URL_DO_SEU_REPOSITORIO]
-    cd analisador_rails
-    ```
+```
 
-    ou, se estiver seguindo o tutorial:
+### 2. Instale as dependências
 
-    ```bash
-    rails new analisador_rails -d postgresql
-    cd analisador_rails
-    ```
+```bash
+bundle install
 
-2.  **Configurar a Chave da API do VirusTotal:**
-    Armazene sua chave de API de forma segura. Execute o comando e adicione a sua chave no arquivo que será aberto.
+```
 
-    ```bash
-    EDITOR="code --wait" rails credentials:edit
-    ```
+### 3. Configuração de Variáveis de Ambiente (.env)
 
-    Adicione a linha:
+Este projeto utiliza a gem `dotenv-rails` para gerenciar senhas e chaves.
 
-    ```yaml
-    virus_total_api_key: "SUA_CHAVE_DA_API_AQUI"
-    ```
+1. Crie um arquivo chamado `.env` na raiz do projeto.
+2. Adicione o seguinte conteúdo, ajustando sua chave da API:
 
-3.  **Configurar o Banco de Dados:**
-    Ajuste as credenciais do PostgreSQL no arquivo `config/database.yml` e crie o banco de dados e as tabelas.
+```env
+# Configuração do Banco de Dados (Padrão local)
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_HOST=localhost
 
-    ```bash
-    rails db:create
-    rails db:migrate
-    ```
+# Chave da API do VirusTotal
+VIRUS_TOTAL_API_KEY=SUA_CHAVE_AQUI_123456
 
-4.  **Instalar as dependências:**
+```
 
-    ```bash
-    bundle install
-    ```
+### 4. Configurar o Banco de Dados
 
-5.  **Rodar o servidor local:**
+Com o `.env` criado e o serviço do PostgreSQL rodando, execute:
 
-    ```bash
-    rails server
-    ```
+```bash
+rails db:create
+rails db:migrate
 
-    Acesse a aplicação em seu navegador em `http://localhost:3000`.
+```
+
+### 5. Rodar o servidor
+
+```bash
+rails server
+
+```
+
+Acesse em seu navegador: `http://localhost:3000`
+
+---
+
+## 💻 Dicas para VS Code
+
+Para garantir que o **Ruby LSP** (Intellisense/Autocomplete) funcione corretamente e não apresente erros de versão:
+
+1. O projeto possui um arquivo `.ruby-version` definindo a versão exata do Ruby.
+2. **Sempre abra o VS Code pelo terminal** para carregar corretamente o ambiente:
+```bash
+cd analisador_rails
+code .
+
+```
+
+
+3. Utilize a extensão oficial **Ruby LSP** (Shopify).
 
 ## Estrutura do Projeto
 
-  - **`app/controllers/analyses_controller.rb`**: Gerencia a lógica de upload, análise e visualização de arquivos.
-  - **`app/models/analysis.rb`**: O modelo de dados para as análises, interagindo com a tabela `analyses`.
-  - **`app/services/virus_total_client.rb`**: Um *service object* para encapsular a comunicação com a API do VirusTotal.
-  - **`config/routes.rb`**: Define as rotas para a aplicação.
-  - **`db/migrate/*`**: Contém a migration para criar a tabela `analyses` no banco de dados.
+* **`app/controllers/analyses_controller.rb`**: Gerencia o fluxo de upload e resposta.
+* **`app/services/virus_total_client.rb`**: Encapsula a lógica de conexão com a API externa.
+* **`app/models/analysis.rb`**: Modelo que representa a tabela de análises no banco.
+* **`config/database.yml`**: Configurado para ler as variáveis do arquivo `.env`.
 
 ## Licença
 
