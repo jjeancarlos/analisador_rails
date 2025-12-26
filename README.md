@@ -77,7 +77,7 @@ foreman start -f Procfile.dev
 
 ```
 
-Acesse em seu navegador: `http://localhost:3000`
+Acesse em seu navegador: `http://localhost:5000`
 
 ---
 
