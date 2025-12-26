@@ -4,6 +4,8 @@ Este é um projeto desenvolvido com **Ruby on Rails 8** para demonstrar o proces
 
 O sistema calcula o hash de um arquivo enviado, verifica se ele é malicioso consultando a API do VirusTotal e armazena o resultado para evitar consultas repetidas (cache).
 
+![homepage](./assets/2025-12-25-210205_hyprshot.png)
+
 ## Funcionalidades
 
 - **Upload de Arquivos:** Interface simples para envio de arquivos.
