@@ -73,7 +73,7 @@ rails db:migrate
 ### 5. Rodar o servidor
 
 ```bash
-rails server
+foreman start -f Procfile.dev
 
 ```
 
